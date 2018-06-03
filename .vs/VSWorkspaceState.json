@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MyWebApp",
+    "\\MyWebApp\\MyWebApp"
   ],
+  "SelectedNode": "\\MyWebApp\\MyWebApp\\Properties",
   "PreviewInSolutionExplorer": false
 }

@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\indexOld.html" />
+    <None Include="wwwroot\js\Index.js" />
+    <None Include="wwwroot\js\jquery-3.3.1.min.js" />
   </ItemGroup>
 
   <ItemGroup>

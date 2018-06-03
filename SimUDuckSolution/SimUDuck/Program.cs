@@ -1,6 +1,8 @@
-﻿using SimUDuck.Interfaces;
+﻿using SimUDuck.Fabrica;
+using SimUDuck.Interfaces;
 using SimUDuck.Patos;
 using System;
+using System.Collections.Generic;
 
 namespace SimUDuck
 {
@@ -8,22 +10,15 @@ namespace SimUDuck
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Pato Selvagem");
-            //IPato patoSelvagem = new PatoSelvagem();
-            //patoSelvagem.Grasnar();
-            //patoSelvagem.Nadar("patoTeste");
-            //patoSelvagem.Voar();
-
-            //Console.WriteLine("Pato Cabeça Vermelha");
-            //IPato patoCabecaVermelha = new PatoCabecaVermelha();
-            //patoCabecaVermelha.Grasnar();
-            //patoCabecaVermelha.Nadar();
-            //patoCabecaVermelha.Voar();
-
+            FabricaPatos fabrica = new FabricaPatos();
             Simulador simulador = new Simulador();
-            simulador.Executar(new PatoSelvagem());
-            simulador.Executar(new PatoCabecaVermelha());
-            simulador.Executar(new PatoReal());
+
+            var patos = fabrica.ObterPatos();
+
+            foreach (var item in patos)
+            {
+                simulador.Executar(item);
+            }
 
             Console.ReadLine();
         }

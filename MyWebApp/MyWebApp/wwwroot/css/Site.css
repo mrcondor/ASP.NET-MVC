@@ -1,4 +1,4 @@
-﻿body {
+﻿/*body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -7,9 +7,9 @@ input, textarea {
     width: 200px;
 }
 
-/*label {
-    font-size: 18px;
-}*/
+label {
+    font-size: 16px;
+}
 
 div#meu-form {
     background-color: darkgreen;
@@ -48,4 +48,4 @@ ul.preco-produto {
 
     .popup-form input[type=checkbox], popup-form input[type=submit]{
         width: auto;
-    }
+    }*/

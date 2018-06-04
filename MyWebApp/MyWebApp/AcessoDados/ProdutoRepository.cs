@@ -16,5 +16,16 @@ namespace MyWebApp.AcessoDados
         {
             return _myWebAppContext.Produtos.ToList();
         }
+
+        public Produto ObterProdutoPorId(int id)
+        {
+            return _myWebAppContext.Produtos.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Salvar(Produto produto)
+        {
+            _myWebAppContext.Produtos.Add(produto);
+            _myWebAppContext.SaveChanges();
+        }
     }
 }

@@ -16,8 +16,7 @@ namespace MyWebApp.Controllers
         }
         public IActionResult Index()
         {
-            var t = _repository.ListarProdutos();
-            return View(_repository.ListarProdutos());
+            return View();
         }
 
         public string Obter()

@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClienteApp\app\listaProduto.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\indexOld.html" />
     <None Include="wwwroot\js\Index.js" />
     <None Include="wwwroot\js\jquery-3.3.1.min.js" />
@@ -22,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClienteApp\app\loja\listaProduto.component.ts" />
     <TypeScriptCompile Include="wwwroot\ts\principal.ts" />
     <TypeScriptCompile Include="wwwroot\ts\produto.ts" />
   </ItemGroup>

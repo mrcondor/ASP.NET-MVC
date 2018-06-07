@@ -1,3 +1,8 @@
-﻿<ul>
-    <li *ngFor="let p of produtos">{{ p.titulo }}</li>
-</ul>
+﻿<div class="row">
+    <div class="col-xs-4 well" *ngFor="let p of produtos">
+        <img src="/img/WOW1.jpg" alt="Imagem Maneira" width="200" height="200" />
+        <h4>{{p.nome}}</h4>
+        <h3><strong>{{p.preco | currency: "R$":true}}</strong></h3>
+        <button id="meu-button produto-info" class="btn btn-success btn-sm" (click)="adicionarProduto(p)">Comprar</button>
+    </div>
+</div>

@@ -10,28 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var dataService_1 = require("../servicos/dataService");
-var ListaProduto = /** @class */ (function () {
-    function ListaProduto(data) {
+var dataService_1 = require("../../servicos/dataService");
+var Carrinho = /** @class */ (function () {
+    function Carrinho(data) {
         this.data = data;
         this.produtos = data.produtos;
     }
-    ListaProduto.prototype.ngOnInit = function () {
+    Carrinho.prototype.ngOnInit = function () {
         var _this = this;
         this.data.carregarProdutos().subscribe(function () { return _this.produtos = _this.data.produtos; });
     };
-    ListaProduto.prototype.adicionarProduto = function (produto) {
-        this.data.adicionarProduto(produto);
-    };
-    ListaProduto = __decorate([
+    Carrinho = __decorate([
         core_1.Component({
-            selector: "lista-produto",
-            templateUrl: "./listaProduto.component.html",
-            styleUrls: ["./listaProduto.component.css"]
+            selector: "carrinho",
+            templateUrl: "./carrinho.component.html",
+            styleUrls: []
         }),
         __metadata("design:paramtypes", [dataService_1.DataService])
-    ], ListaProduto);
-    return ListaProduto;
+    ], Carrinho);
+    return Carrinho;
 }());
-exports.ListaProduto = ListaProduto;
-//# sourceMappingURL=listaProduto.component.js.map
+exports.Carrinho = Carrinho;
+//# sourceMappingURL=carrinho.component.js.map

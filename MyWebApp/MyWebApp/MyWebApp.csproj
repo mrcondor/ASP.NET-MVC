@@ -12,6 +12,10 @@
 
   <ItemGroup>
     <None Remove="ClienteApp\app\listaProduto.component.ts" />
+    <None Remove="ClienteApp\app\loja\carrinho\carrinho.component.ts" />
+    <None Remove="ClienteApp\app\modelos\pedido.ts" />
+    <None Remove="ClienteApp\app\modelos\produto.ts" />
+    <None Remove="ClienteApp\app\servicos\dataService.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClienteApp\app\loja\carrinho\carrinho.component.ts" />
     <TypeScriptCompile Include="ClienteApp\app\loja\listaProduto.component.ts" />
+    <TypeScriptCompile Include="ClienteApp\app\modelos\pedido.ts" />
+    <TypeScriptCompile Include="ClienteApp\app\modelos\produto.ts" />
+    <TypeScriptCompile Include="ClienteApp\app\servicos\dataService.ts" />
     <TypeScriptCompile Include="wwwroot\ts\principal.ts" />
     <TypeScriptCompile Include="wwwroot\ts\produto.ts" />
   </ItemGroup>

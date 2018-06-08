@@ -38,6 +38,14 @@ var DataService = /** @class */ (function () {
             this.pedido.ItensPedidos.push(item);
         }
     };
+    DataService.prototype.efetivarCompra = function () {
+        var _this = this;
+        return this.http.post("/api/pedido", this.pedido)
+            .map(function (resposta) {
+            _this.pedido = new pedido_1.Pedido();
+            return true;
+        });
+    };
     DataService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

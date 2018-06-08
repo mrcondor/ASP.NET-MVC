@@ -3,7 +3,7 @@
 <div>Contagem: {{ data.pedido.ItensPedidos.length }}</div>
 <div>Total: {{data.pedido.total | currency:"R$":true}}</div>
 
-<table class="=table table-condensed table-hover" >
+<table class="=table table-condensed table-hover">
     <thead>
         <tr>
             <td>Nome</td>
@@ -21,3 +21,4 @@
         </tr>
     </tbody>
 </table>
+<a routerLink="efetivarCompra" class="btn btn-success" *ngIf="data.pedido.ItensPedidos.length > 0">Efetivar Compra</a>

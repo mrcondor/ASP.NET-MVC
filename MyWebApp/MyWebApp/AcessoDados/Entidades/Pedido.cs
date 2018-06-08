@@ -9,6 +9,6 @@ namespace MyWebApp.AcessoDados.Entidades
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
-        public ICollection<ItemPedido> ItemPedido { get; set; }
+        public ICollection<ItemPedido> ItensPedidos { get; set; }
     }
 }

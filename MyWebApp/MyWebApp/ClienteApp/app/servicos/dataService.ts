@@ -13,7 +13,7 @@ export class DataService {
     public produtos: Produto[];
     public pedido: Pedido = new Pedido();
 
-    carregarProdutos() : Observable<Produto[]> {
+    carregarProdutos(): Observable<Produto[]> {
         return this.http.get("/api/produto").map((result: Response) => this.produtos = result.json());
     }
 
@@ -33,5 +33,13 @@ export class DataService {
 
             this.pedido.ItensPedidos.push(item);
         }
+    }
+
+    public efetivarCompra() {
+        return this.http.post("/api/pedido", this.pedido)
+            .map(resposta => {
+                this.pedido = new Pedido();
+                return true;
+            })
     }
 }

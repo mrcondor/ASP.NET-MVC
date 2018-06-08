@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"col-xs-7\">\r\n        <lista-produto></lista-produto>\r\n    </div>\r\n    <div class=\"col-xs-5\">\r\n        <div class=\"well well-sm\">\r\n            <carrinho></carrinho>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<router-outlet>\r\n\r\n</router-outlet>"
 
 /***/ }),
 
@@ -98,6 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _loja_listaProduto_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./loja/listaProduto.component */ "./ClienteApp/app/loja/listaProduto.component.ts");
 /* harmony import */ var _servicos_dataService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./servicos/dataService */ "./ClienteApp/app/servicos/dataService.ts");
 /* harmony import */ var _loja_carrinho_carrinho_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./loja/carrinho/carrinho.component */ "./ClienteApp/app/loja/carrinho/carrinho.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _loja_loja_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./loja/loja.component */ "./ClienteApp/app/loja/loja.component.ts");
+/* harmony import */ var _loja_efetivarCompra_efetivarCompra_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./loja/efetivarCompra/efetivarCompra.component */ "./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -111,6 +114,13 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+var router = [
+    { path: "", component: _loja_loja_component__WEBPACK_IMPORTED_MODULE_8__["Loja"] },
+    { path: "efetivarCompra", component: _loja_efetivarCompra_efetivarCompra_component__WEBPACK_IMPORTED_MODULE_9__["EfetivarCompra"] }
+];
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -119,11 +129,17 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _loja_listaProduto_component__WEBPACK_IMPORTED_MODULE_4__["ListaProduto"],
-                _loja_carrinho_carrinho_component__WEBPACK_IMPORTED_MODULE_6__["Carrinho"]
+                _loja_carrinho_carrinho_component__WEBPACK_IMPORTED_MODULE_6__["Carrinho"],
+                _loja_loja_component__WEBPACK_IMPORTED_MODULE_8__["Loja"],
+                _loja_efetivarCompra_efetivarCompra_component__WEBPACK_IMPORTED_MODULE_9__["EfetivarCompra"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"]
+                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(router, {
+                    useHash: true,
+                    enableTracing: false
+                })
             ],
             providers: [_servicos_dataService__WEBPACK_IMPORTED_MODULE_5__["DataService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -143,7 +159,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Carrinho de Compras</h3>\r\n\r\n<div>Contagem: {{ data.pedido.ItensPedidos.length }}</div>\r\n<div>Total: {{data.pedido.total | currency:\"R$\":true}}</div>\r\n\r\n<table class=\"=table table-condensed table-hover\" >\r\n    <thead>\r\n        <tr>\r\n            <td>Nome</td>\r\n            <td>Quantidade</td>\r\n            <td>Preço</td>\r\n            <td>Total</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let item of data.pedido.ItensPedidos\">\r\n            <td>{{item.Produto.nome}}</td>\r\n            <td>{{item.Quantidade}}</td>\r\n            <td>{{item.Produto.preco | currency:\"R$\":true}}</td>\r\n            <td>{{item.Produto.preco * item.Quantidade | currency:\"R$\":true}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+module.exports = "<h3>Carrinho de Compras</h3>\r\n\r\n<div>Contagem: {{ data.pedido.ItensPedidos.length }}</div>\r\n<div>Total: {{data.pedido.total | currency:\"R$\":true}}</div>\r\n\r\n<table class=\"=table table-condensed table-hover\">\r\n    <thead>\r\n        <tr>\r\n            <td>Nome</td>\r\n            <td>Quantidade</td>\r\n            <td>Preço</td>\r\n            <td>Total</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let item of data.pedido.ItensPedidos\">\r\n            <td>{{item.Produto.nome}}</td>\r\n            <td>{{item.Quantidade}}</td>\r\n            <td>{{item.Produto.preco | currency:\"R$\":true}}</td>\r\n            <td>{{item.Produto.preco * item.Quantidade | currency:\"R$\":true}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<a routerLink=\"efetivarCompra\" class=\"btn btn-success\" *ngIf=\"data.pedido.ItensPedidos.length > 0\">Efetivar Compra</a>"
 
 /***/ }),
 
@@ -188,6 +204,73 @@ var Carrinho = /** @class */ (function () {
         __metadata("design:paramtypes", [_servicos_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], Carrinho);
     return Carrinho;
+}());
+
+
+
+/***/ }),
+
+/***/ "./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.html":
+/*!**************************************************************************!*\
+  !*** ./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n    <h3>Efetivar Compra</h3>\r\n    <div *ngIf=\"mensagem\" class=\"alert alert-warning\">{{mensagem}}</div>\r\n    <table class=\"table table-bordered table-hover\">\r\n        <thead>\r\n            <tr *ngFor=\"let item of data.pedido.ItensPedidos\">\r\n                <td><img src=\"/img/WOW1.jpg\" alt=\"Imagem Maneira\" width=\"200\" height=\"200\" /></td>\r\n                <td>{{item.Produto.nome}}</td>\r\n                <td>{{item.Quantidade}}</td>\r\n                <td>{{item.Produto.preco | currency:\"R$:true\"}}</td>\r\n                <td>{{(item.Produto.preco * item.Quantidade) | currency:\"R$\":true}}</td>\r\n            </tr>\r\n        </thead>\r\n    </table>\r\n    <div class=\"col-xs-4 col-xs-offset-8 text-right\">\r\n        <table class=\"table table-condensed\">\r\n            <tr>\r\n                <td>Total</td>\r\n                <td>{{data.pedido.total | currency:\"R$\":true}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td>Frete</td>\r\n                <td>R$ 0.00</td>\r\n            </tr>\r\n        </table>\r\n        <button class=\"btn btn-success\" (click)=\"onEfetivarCompra()\">Comprar</button>\r\n        <a routerLink=\"\" class=\"btn btn-info\">Cancelar</a>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.ts":
+/*!************************************************************************!*\
+  !*** ./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.ts ***!
+  \************************************************************************/
+/*! exports provided: EfetivarCompra */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EfetivarCompra", function() { return EfetivarCompra; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _servicos_dataService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../servicos/dataService */ "./ClienteApp/app/servicos/dataService.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EfetivarCompra = /** @class */ (function () {
+    function EfetivarCompra(data, router) {
+        this.data = data;
+        this.router = router;
+    }
+    EfetivarCompra.prototype.onEfetivarCompra = function () {
+        var _this = this;
+        this.data.efetivarCompra()
+            .subscribe(function (sucesso) {
+            if (sucesso) {
+                _this.router.navigate([""]);
+            }
+        }, function (erro) {
+            _this.mensagem = "Falhar ao salvar pedido";
+        });
+    };
+    EfetivarCompra = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "efetivar",
+            template: __webpack_require__(/*! ./efetivarCompra.component.html */ "./ClienteApp/app/loja/efetivarCompra/efetivarCompra.component.html"),
+            styleUrls: []
+        }),
+        __metadata("design:paramtypes", [_servicos_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], EfetivarCompra);
+    return EfetivarCompra;
 }());
 
 
@@ -260,6 +343,52 @@ var ListaProduto = /** @class */ (function () {
         __metadata("design:paramtypes", [_servicos_dataService__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
     ], ListaProduto);
     return ListaProduto;
+}());
+
+
+
+/***/ }),
+
+/***/ "./ClienteApp/app/loja/loja.component.html":
+/*!*************************************************!*\
+  !*** ./ClienteApp/app/loja/loja.component.html ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-xs-7\">\r\n        <lista-produto></lista-produto>\r\n    </div>\r\n    <div class=\"col-xs-5\">\r\n        <div class=\"well well-sm\">\r\n            <carrinho></carrinho>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./ClienteApp/app/loja/loja.component.ts":
+/*!***********************************************!*\
+  !*** ./ClienteApp/app/loja/loja.component.ts ***!
+  \***********************************************/
+/*! exports provided: Loja */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Loja", function() { return Loja; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var Loja = /** @class */ (function () {
+    function Loja() {
+    }
+    Loja = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: "loja",
+            template: __webpack_require__(/*! ./loja.component.html */ "./ClienteApp/app/loja/loja.component.html"),
+            styleUrls: []
+        })
+    ], Loja);
+    return Loja;
 }());
 
 
@@ -378,6 +507,14 @@ var DataService = /** @class */ (function () {
             item.Quantidade = 1;
             this.pedido.ItensPedidos.push(item);
         }
+    };
+    DataService.prototype.efetivarCompra = function () {
+        var _this = this;
+        return this.http.post("/api/pedido", this.pedido)
+            .map(function (resposta) {
+            _this.pedido = new _modelos_pedido__WEBPACK_IMPORTED_MODULE_1__["Pedido"]();
+            return true;
+        });
     };
     DataService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),

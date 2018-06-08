@@ -5,16 +5,31 @@ import { AppComponent } from './app.component';
 import { ListaProduto } from './loja/listaProduto.component'
 import { DataService } from './servicos/dataService';
 import { Carrinho } from './loja/carrinho/carrinho.component';
+import { RouterModule } from '@angular/router';
+import { Loja } from './loja/loja.component';
+import { EfetivarCompra } from './loja/efetivarCompra/efetivarCompra.component';
+
+
+let router = [
+    { path: "", component: Loja },
+    { path: "efetivarCompra", component: EfetivarCompra }
+]
 
 @NgModule({
     declarations: [
         AppComponent,
         ListaProduto,
-        Carrinho
+        Carrinho,
+        Loja,
+        EfetivarCompra
     ],
     imports: [
         BrowserModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot(router, {
+            useHash: true,
+            enableTracing: false
+        })
     ],
     providers: [DataService],
     bootstrap: [AppComponent]

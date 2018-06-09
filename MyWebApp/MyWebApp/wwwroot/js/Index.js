@@ -1,8 +1,8 @@
 ﻿//JQUERY
 
 $(document).ready(function () {
-    var $button = $("#meu-button");
-    $button.on("click", () => alert("Alerta"));
+    //var $button = $("#meu-button");
+    //$button.on("click", () => alert("Alerta"));
 
     var $precos = $(".preco-produto li");
     $precos.on("click", function () {
